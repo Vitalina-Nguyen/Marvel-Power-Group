@@ -1,0 +1,57 @@
+@mixin title-line-sm ($color) {
+    width: 65px;
+    height: 4px;
+    background-color: $color;
+    margin-bottom: 40px;
+    margin-top: 32px;
+}
+
+@mixin title-line-bg ($color) {
+    width: 100px;
+    height: 6px;
+    background-color: $color;
+    margin-bottom: 56px;
+    margin-top: 48px;
+}
+
+@mixin benefit-num ($fs, $lh) {
+    font-family: Sofia Pro Bold;
+    font-weight: 700;
+    font-size: $fs;
+    line-height: $lh;
+    padding: 16px 0px 8px 0px;
+}
+
+@mixin benefit-let ($fs, $lh) {
+    font-family: Sofia Pro Bold;
+    font-weight: 700;
+    font-size: $fs;
+    line-height: $lh;
+}
+
+@mixin dots-sm ($color, $wAndH: 4px) {
+    content: "";
+    position: absolute;
+    left: -12px;
+    width: $wAndH;
+    height: $wAndH;
+    background-color: $color;
+}
+
+@mixin arrow ($color) {
+    border: solid $color;
+    border-width: 2px 2px 0 0;
+    position: absolute;
+    padding: 3px;
+    width: 5px;
+    height: 5px;
+    transform: rotate(45deg);
+}
+
+@mixin arrow-conainer {
+    width: 5px;
+    height: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}

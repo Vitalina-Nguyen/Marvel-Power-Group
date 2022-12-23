@@ -1,0 +1,840 @@
+@import "fonts.scss";
+@import "bs.scss";
+@import "reset.scss";
+@import "media.scss";
+@import "vars.scss";
+@import "mixins.scss";
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+.col-sm-12,
+.col-lg-9,
+.col-sm-12,
+.col-lg-4,
+.col-md-6,
+.col-6,
+.col-12,
+.col-sm-10,
+.col-md-10,
+.col-lg-7,
+.col-lg-5 {
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: Sofia Pro Light;
+    font-style: normal;
+    font-weight: 400;
+    color: $black;
+    // height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100%;
+
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    padding: 0px 15px;
+    overflow: visible;
+}
+
+.container.container-wrapper {
+    height: 100%;
+}
+
+body h2 {
+    font-family: Alata;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    padding: 56px 0 0 0;
+    text-align: start;
+}
+
+strong {
+    font-family: Sofia Pro Bold;
+}
+
+.none {
+    display: none;
+    position: absolute;
+}
+
+//NAVIGATION LINKS 
+.navigation {
+    display: none; 
+}
+
+//NAVIGATION
+
+.header {
+    width: 100%;
+    min-height: 70px;
+    position: fixed;
+    z-index: 10;
+    transition: all 0.5s linear;
+}
+
+.navbar {
+
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px 0;
+
+    &-brand {
+        height: 38px;
+        width: 100px;
+        position: relative;
+        z-index: 5;
+    }
+
+    &__links {
+        display: none;
+    }
+
+    &__links li {
+        margin-bottom: 24px;
+    }
+
+    &__links li:nth-child(5) {
+        margin-bottom: 88px;
+    }
+
+
+    &__links a {
+
+        color: #000000;
+        font-family: Alata;
+        font-size: 40px;
+        line-height: 48px;
+
+        &:hover {
+            color: $yellow;
+            transition: all .2s ease;
+        }
+    }
+
+    .contact__btn {
+        font-family: Sofia Pro Bold;
+        margin: 0 auto;
+        padding: 19px 40px 15px;
+        height: 48px;
+        width: 100%;
+        max-width: 210px;
+        background: $yellow;
+        cursor: pointer;
+
+        a {
+            text-transform: uppercase;
+            color: $black;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 14px;
+            letter-spacing: 0.6px;
+        }
+
+        a:after {
+            content: url("@img/nav/contact-us-btn.svg");
+            width: 20px;
+            height: 20px;
+            margin-left: 5px;
+
+        }
+    }
+
+    .menu {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+
+    .menu__btn {
+        position: relative;
+        height: 25px;
+        width: 25px;
+        float: left;
+    }
+
+    .menu__btn span {
+        position: absolute;
+        right: 0;
+        width: 25px;
+        height: 2px;
+        background-color: $black;
+    }
+
+    .menu__btn span:nth-child(1) {
+        transform: translateY(-3px);
+    }
+
+    .menu__btn span:nth-child(2) {
+        transform: translateY(2px);
+    }
+
+    &__links.open {
+        position: fixed;
+        display: block;
+        top: 0;
+        right: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        background-color: $white;
+        z-index: 0;
+        padding-top: 118px;
+    }
+
+    .menu__btn.open {
+        span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+
+        span:nth-child(2) {
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+//HEADER BLOCK
+
+.header-block {
+    background-image: linear-gradient(0deg, #000000 2.41%, rgba(0, 0, 0, 0) 76.23%),
+        url("@img/nav/header-back-mb.jpg");
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 150px;
+    text-align: center;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-height: 509px;
+
+
+    h1 {
+        font-family: 'Alata';
+        font-weight: 400;
+        font-size: 50px;
+        line-height: 60px;
+        margin-bottom: 16px;
+    }
+
+    p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 48px;
+    }
+
+    .contact__btn {
+        font-family: Sofia Pro Bold;
+        margin: 0 auto;
+        margin-bottom: 56px;
+        padding: 19px 40px 15px;
+        height: 48px;
+        width: auto;
+        background: $yellow;
+
+        a {
+            text-transform: uppercase;
+            color: $black;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 14px;
+            letter-spacing: 0.6px;
+
+        }
+
+        a:after {
+            content: url("@img/nav/contact-us-btn.svg");
+            width: 20px;
+            height: 10px;
+            margin-left: 5px;
+
+        }
+    }
+
+    .next-page {
+        display: none;
+    }
+}
+
+//MISSION 
+.mission {
+
+    // Title
+    &__title-box {
+        box-sizing: border-box;
+        width: auto;
+    }
+
+    &__title-line {
+        @include title-line-sm ($yellow);
+    }
+
+    // Pic
+    .text-box_pic {
+        overflow: hidden;
+        margin-bottom: 32px;
+    }
+
+
+    &__text-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        margin: 0 auto;
+    }
+
+    // Text 
+    &__text-box p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    &__text-box p:first-child {
+        margin-bottom: 20px;
+    }
+
+    &__text-box p:nth-child(2) {
+        margin-bottom: 0 !important;
+    }
+
+    //Benefits
+    .benefits {
+        text-align: center;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        justify-items: center;
+        row-gap: 40px;
+        column-gap: 10px;
+        margin: 56px 0;
+
+        & div {
+            max-width: 140px
+        }
+
+        .num {
+            @include benefit-num (32px, 40px);
+        }
+
+        span {
+            @include benefit-let (30px, 32px);
+        }
+
+        .benefit-5 {
+            grid-column: 1/-1;
+        }
+
+        &__ic {
+            width: 56px;
+            height: 56px;
+        }
+
+        & p {
+            font-size: 12px;
+            line-height: 16px;
+            padding: 0;
+            margin: 0;
+
+        }
+
+    }
+}
+
+
+//SERVICES
+.services {
+    background-color: $yellow !important;
+
+    //Title and describtion
+    &__title-box {
+        padding-bottom: 56px;
+    }
+
+    &__title-line {
+        @include title-line-sm ($white);
+    }
+
+    &__title-box p {
+        padding: 0;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    //Service units and conclusion
+
+    .service-item {
+        max-width: 351px;
+    }
+
+    .service-name {
+        font-family: Sofia Pro Bold;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 28px;
+        margin-bottom: 16px;
+    }
+
+    ul {
+        padding-left: 0;
+        margin-bottom: 24px;
+    }
+
+    ul>li {
+        position: relative;
+        font-size: 14px;
+        line-height: 24px;
+        margin-left: 12px;
+
+        &::before {
+            @include dots-sm ($white);
+            transform: translate(0px, 10px);
+        }
+    }
+
+    .service-arrow {
+        display: flex;
+        align-items: center;
+        margin: 0 0 40px 12px;
+        height: 10px;
+
+        .line {
+            width: 33px;
+            height: 2px;
+            background-color: $white;
+        }
+
+        .arrow {
+            @include arrow-conainer;
+
+            & div {
+                @include arrow ($white);
+            }
+        }
+    }
+
+    .services__conclusion {
+        margin: 16px 0 56px 0;
+    }
+}
+
+//TEAM
+
+.team {
+
+    .intro-meet>span,
+    .member-name,
+    .career-title,
+    .education-title {
+        font-family: Sofia Pro Bold;
+    }
+
+    &__title-line {
+        @include title-line-sm ($yellow);
+    }
+
+    &__group {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    &__intro-box {
+        display: flex;
+        flex-flow: row wrap;
+    }
+
+    .member-wraper {
+        padding: 16px 24px 24px 24px;
+        background-color: $white;
+        box-shadow: 0px 0px 40px rgba(0, 13, 129, 0.08);
+        border-radius: 0 0 0 48px;
+        position: relative;
+        max-width: 650px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .member-item-1 {
+        margin-bottom: 32px;
+    }
+
+    //Intro
+    &__intro-box {
+        margin-bottom: 32px;
+    }
+
+    .intro-meet {
+        color: $yellow;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 16px;
+        margin-bottom: 24px;
+
+        .arrow {
+            @include arrow-conainer;
+
+            & div {
+                @include arrow ($white);
+            }
+
+        }
+    }
+
+    .member-name {
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 28px;
+        margin-bottom: 8px;
+    }
+
+    .member-position {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .member-img img {
+        height: 136px;
+        border-radius: 0 0 0 48px;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    //Describtion
+    .member-descr {
+        font-size: 14px;
+        line-height: 24px;
+        margin-bottom: 32px;
+    }
+
+    //Career History
+    .career-title {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 16px;
+    }
+
+    ul {
+        padding: 0;
+        margin-bottom: 32px;
+    }
+
+    ul>li {
+        position: relative;
+        font-size: 12px;
+        line-height: 16px;
+        margin-left: 12px;
+
+        &:not(:last-child) {
+            margin-bottom: 5px;
+        }
+
+        &::before {
+            @include dots-sm ($yellow);
+            transform: translate(0px, 6px);
+        }
+    }
+
+    //Education
+    .education-title {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 24px;
+        margin-bottom: 16px;
+
+    }
+
+    //References
+    .member-links {
+        display: flex;
+        justify-content: end;
+        padding-left: 24px;
+    }
+
+    .member-links a {
+        margin-left: 24px;
+    }
+
+}
+
+//NEWS
+.news {
+    .news__title-box {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .container {
+        padding: 0;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 600px;
+
+    }
+
+    .news__title-line {
+        padding-left: 15px;
+    }
+
+    &__title-line {
+        @include title-line-sm ($yellow);
+    }
+
+    .swiper {
+        padding-left: 15px;
+        padding-right: 15px;
+        overflow: hidden;
+        padding-bottom: 50px;
+        margin-bottom: 96px;
+
+    }
+
+    .swiper-wrapper {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+
+    }
+
+
+    .card {
+        margin: 0 auto;
+        border: none;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0px 0px 40px rgba(0, 13, 129, 0.08);
+        border-radius: 0px 0px 0px 48px;
+        max-width: 510px;
+        transition: all .2s;
+
+        &:hover {
+            box-shadow: 0px 0px 56px rgba(0, 11, 107, 0.16);
+        }
+
+        &:hover .image-contetnt {
+            border-radius: 0px 0px 0px 64px;
+        }
+
+        &:hover .card-title {
+            color: $yellow;
+        }
+
+    }
+
+
+    .image-contetnt {
+        min-height: 190px;
+        max-height: 230px;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .image-contetnt img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .text-content {
+        margin: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .card-logo {
+        width: 107px;
+        margin-bottom: 16px;
+    }
+
+    .card-title {
+        color: $black;
+        font-family: Sofia Pro Bold;
+        font-weight: 700;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .card-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .card-bottom span {
+        display: flex;
+        align-items: center;
+    }
+
+    .card-date {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 16px;
+        color: $black;
+    }
+
+    .line {
+        width: 33px;
+        height: 2px;
+        background-color: $yellow;
+        margin-right: 1px;
+    }
+
+    .arrow {
+        @include arrow-conainer;
+
+    }
+
+    .arrow div {
+        @include arrow ($yellow);
+        padding: 1px;
+    }
+
+    //buttons
+    .next-btn,
+    .prev-btn {
+        display: none;
+    }
+
+    .pagination.swiper-pagination {
+        display: flex;
+        justify-content: center;
+        align-items: start;
+        padding-top: 32px;
+
+        .swiper-pagination-bullet {
+            border-radius: 0;
+            @include dots-sm ($yellow, 8px);
+            position: static;
+        }
+    }
+}
+
+//FOOTER
+footer {
+    margin-top: auto;
+    width: 100%;
+    background-color: $black-back;
+    padding-bottom: 54px;
+
+    h2 {
+        color: $white;
+    }
+
+    .contact__title-line {
+        @include title-line-sm ($yellow);
+    }
+
+    .email-wrapper {
+        font-family: Sofia Pro Bold;
+        font-weight: 700;
+        font-size: 25px;
+        line-height: 28px;
+        padding: 0;
+        margin-bottom: 56px;
+
+        & div {
+            color: $white;
+        }
+
+        & span {
+            color: $yellow;
+            font-size: 21px;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        
+    }
+    .form-title {
+        font-family: Sofia Pro Bold;
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 28px;
+        color: $white;
+        margin-bottom: 32px;
+        padding-right: 134px;
+    }
+
+    .form-input {
+        padding: 14px 20px;
+        background-color: $white;
+        margin-bottom: 8px;
+        width: 100%;
+        font-family: Sofia Pro Bold;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.6px;
+
+        &::placeholder {
+            font-family: Sofia Pro Bold;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            color: $black;
+
+        }   
+        
+    }
+    .error {
+        width: 100%;
+        color: $yellow;
+        font-size: 14px;
+        position: relative;
+        top: -8px;
+        padding-left: 5px;
+    }
+
+    .send-btn {
+        font-family: Sofia Pro Bold;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 14px;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        color: $black;
+        background-color: $yellow;
+        width: 196px;
+        height: 48px;
+        scroll-margin-bottom: 15px;
+        
+        &::after {
+            content: url("@img/nav/contact-us-btn.svg");
+            width: 20px;
+            height: 10px;
+            margin-left: 5px;
+        }
+    }
+}
