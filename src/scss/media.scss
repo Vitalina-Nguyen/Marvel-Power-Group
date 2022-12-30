@@ -747,9 +747,7 @@
 
 @media (min-width: 1150px) {
 
-    .mission .text-box_text {
-        margin-left: -14px;
-    }
+    
 }
 
 
@@ -763,5 +761,8 @@
     body .news .container {
         max-width: 1170px;
         width: 100%;
+    }
+    .mission .text-box_text {
+        margin-left: -14px;
     }
 }
