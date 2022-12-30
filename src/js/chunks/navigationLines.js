@@ -6,41 +6,39 @@ const first = document.querySelector("#first"),
   sixth = document.querySelector("#sixth"),
   lines = document.querySelectorAll(".item-line"), //Линии
   sectionNames = document.querySelectorAll(".page"), //Блоки с названиями страниц
-  navItem = document.querySelectorAll(".navigation__item"),
   navigation = document.querySelector("#navigation");
 
-class ElementClass {
+
+  
   el = [first, second, third, fourth, fifth, sixth]; //Элементы страницы
   elLine = Array.prototype.slice.call(lines);
   elSection = Array.prototype.slice.call(sectionNames);
-  navItem = Array.prototype.slice.call(navItem);
   length = 6;
 
-  onScreen(i) {
-    this.elLine[i].style.width = "50px";
-    this.elSection[i].classList.remove("none");
+  function onScreen(i) {
+    elLine[i].style.width = "50px";
+    elSection[i].classList.remove("none");
   }
-  outOfScreen(i) {
-    this.elLine[i].style.width = "30px";
-    this.elSection[i].classList.add("none");
+  function outOfScreen(i) {
+    elLine[i].style.width = "30px";
+    elSection[i].classList.add("none");
   }
-}
+    
 
-const obj = new ElementClass();
 
 //Изменение внешнего вида навигационной линии
 function navigationLines() {
   if (document.documentElement.clientWidth >= 767) {
     const breakpoint = document.documentElement.clientHeight / 4 + navbar.offsetHeight; //Точка где меняется раздел в навигации 
-    for (i = 0; i < obj.length; i++) {
-      let elCurrentTop = obj.el[i].getBoundingClientRect().top + document.documentElement.scrollTop,
-          elCurrentBottom = obj.el[i].getBoundingClientRect().bottom + document.documentElement.scrollTop;
+    for (i = 0; i < length; i++) {
+      let elCurrentTop = el[i].getBoundingClientRect().top + document.documentElement.scrollTop,
+          elCurrentBottom = el[i].getBoundingClientRect().bottom + document.documentElement.scrollTop;
 
       if ( window.pageYOffset + breakpoint >= elCurrentTop
            && window.pageYOffset + breakpoint <= elCurrentBottom) {
-        obj.onScreen(i);
+        onScreen(i);
       } else {
-        obj.outOfScreen(i);
+        outOfScreen(i);
       }
     }
   }

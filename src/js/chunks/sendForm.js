@@ -6,10 +6,10 @@ const nameError = document.querySelector('.error.name'),
     companyInput = document.querySelector('#form-input-company'),
     emailInput = document.querySelector('#form-input-email')
 
-    //Проверка правильности почты
-    function isEmailValid(value) {
+//Проверка правильности почты
+function isEmailValid(value) {
         return EMAIL_REGEXP.test(value);
-    }
+}
 
 function sendFormError () {
 
@@ -43,11 +43,13 @@ function sendFormError () {
                   companyError.classList.add('none')
                   emailError.classList.add('none')
               }
-
+        //Вывод данных в консоль
         console.log(`Name: ${nameInput.value} \nCompany: ${companyInput.value}
-              \nEmail: ${emailInput}`)
-        nameInput.value === ''
-        companyInput.value === ''
-        emailInput.value === ''
+              \nEmail: ${emailInput.value}`)
+              
+        //Обнуление строк input
+        nameInput.value = '';
+        companyInput.value = '';
+        emailInput.value = '';
     }
 }

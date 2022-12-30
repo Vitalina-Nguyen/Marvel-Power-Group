@@ -17,11 +17,8 @@ var swiper = new Swiper(".newsSwiper", {
 
     breakpoints: {
       0: {
-        slidesPerView: 1.2,
+        slidesPerView: 1.05,
         spaceBetween: 24,
-      },
-      400: {
-        slidesPerView: 1,
       },
       576: {
         slidesPerView: 1,

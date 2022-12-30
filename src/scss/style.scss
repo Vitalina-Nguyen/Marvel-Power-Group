@@ -1,5 +1,6 @@
 @import "fonts.scss";
 @import "bs.scss";
+@import "swiper.scss";
 @import "reset.scss";
 @import "media.scss";
 @import "vars.scss";
@@ -26,7 +27,7 @@ html {
 .col-sm-10,
 .col-md-10,
 .col-lg-7,
-.col-lg-5 {
+.col-lg-5, p {
     padding-left: 0;
     padding-right: 0;
     margin: 0;
@@ -72,7 +73,6 @@ strong {
 
 .none {
     display: none;
-    position: absolute;
 }
 
 //NAVIGATION LINKS 
@@ -146,6 +146,7 @@ strong {
             font-size: 14px;
             line-height: 14px;
             letter-spacing: 0.6px;
+            margin: 0 auto;
         }
 
         a:after {
@@ -179,11 +180,11 @@ strong {
     }
 
     .menu__btn span:nth-child(1) {
-        transform: translateY(-3px);
+        transform: translateY(-4px);
     }
 
     .menu__btn span:nth-child(2) {
-        transform: translateY(2px);
+        transform: translateY(3px);
     }
 
     &__links.open {
@@ -219,7 +220,7 @@ strong {
     background-position: top;
     background-size: cover;
     background-repeat: no-repeat;
-    padding-top: 150px;
+    padding-top: 121px;
     text-align: center;
     color: $white;
     display: flex;
@@ -251,6 +252,11 @@ strong {
         height: 48px;
         width: auto;
         background: $yellow;
+        transition: all .25s ease-in-out;
+
+        &:hover {
+            border-radius: 24px;
+        }
 
         a {
             text-transform: uppercase;
@@ -328,9 +334,10 @@ strong {
         row-gap: 40px;
         column-gap: 10px;
         margin: 56px 0;
+        align-items: end;
 
         & div {
-            max-width: 140px
+            max-width: 140px;
         }
 
         .num {
@@ -348,6 +355,7 @@ strong {
         &__ic {
             width: 56px;
             height: 56px;
+            margin-bottom: 16px;
         }
 
         & p {
@@ -355,7 +363,7 @@ strong {
             line-height: 16px;
             padding: 0;
             margin: 0;
-
+            margin-top: 8px;
         }
 
     }
@@ -492,12 +500,18 @@ strong {
         font-size: 12px;
         line-height: 16px;
         margin-bottom: 24px;
+        display: flex;
+        align-items: center;
 
         .arrow {
             @include arrow-conainer;
+            margin-left: 8px;
 
             & div {
-                @include arrow ($white);
+                @include arrow ($yellow);
+                width: 4px;
+                height: 4px;
+                left: -3px;
             }
 
         }
@@ -598,6 +612,7 @@ strong {
 
     .news__title-line {
         padding-left: 15px;
+        margin-bottom: 20px;
     }
 
     &__title-line {
@@ -608,7 +623,7 @@ strong {
         padding-left: 15px;
         padding-right: 15px;
         overflow: hidden;
-        padding-bottom: 50px;
+        padding-bottom: 92px;
         margin-bottom: 96px;
 
     }
@@ -630,13 +645,22 @@ strong {
         border-radius: 0px 0px 0px 48px;
         max-width: 510px;
         transition: all .2s;
+        margin-top: 40px;
+        
+        .image-contetnt img {
+            transition: all .2s;
+        }
+
+        .card-title {
+            transition: all .2s;
+        }
 
         &:hover {
             box-shadow: 0px 0px 56px rgba(0, 11, 107, 0.16);
         }
 
-        &:hover .image-contetnt {
-            border-radius: 0px 0px 0px 64px;
+        &:hover .image-contetnt img {
+            border-radius: 0px 0px 0px 48px;
         }
 
         &:hover .card-title {
@@ -726,7 +750,6 @@ strong {
         display: flex;
         justify-content: center;
         align-items: start;
-        padding-top: 32px;
 
         .swiper-pagination-bullet {
             border-radius: 0;
@@ -741,7 +764,7 @@ footer {
     margin-top: auto;
     width: 100%;
     background-color: $black-back;
-    padding-bottom: 54px;
+    padding-bottom: 56px;
 
     h2 {
         color: $white;
