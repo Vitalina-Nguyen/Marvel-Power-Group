@@ -525,6 +525,10 @@
     }
     .news {
 
+        &__title-line {
+                    @include title-line-bg ($yellow);
+                }
+                
         .swiper {
             padding-left: 30px;
             padding-right: 30px;
